@@ -112,6 +112,8 @@
 
     .section-alt {
       background: var(--surface-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .section-white {
