@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Upari Consulting — AI | Oracle Cloud | ERP | ServiceNow</title>
+  <meta name="description"
+    content="Upari Consulting delivers 30+ years of enterprise implementation experience across Oracle Cloud, ERP, AI, and ServiceNow." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ NAV ══════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></a>
+            <ul class="nav-links">
+        <li><a href="index.html#methodology">Our Approach</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#industries">Industries</a></li>
+        <li><a href="index.html#technologies">Technologies</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="nav-cta" onclick="openModal()">Get in Touch</button>
+        <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleMobile()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html#methodology" onclick="closeMobile()">Our Approach</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#industries" onclick="closeMobile()">Industries</a>
+    <a href="index.html#technologies" onclick="closeMobile()">Technologies</a>
+    <a href="careers.html" onclick="closeMobile()">Careers</a>
+    <a href="index.html#contact" onclick="closeMobile()">Contact</a>
+    <a class="mob-cta" onclick="closeMobile(); openModal();">Get in Touch →</a>
+  </div>
+
+  <!-- ══ PRODUCTS & SERVICES — ECOSYSTEM ════════════════════════ -->
+  <section class="section ecosystem-section" id="services">
+    <div class="wrap">
+      <div class="section-header center reveal">
+        <span class="eyebrow">Products &amp; Services</span>
+        <h2 class="section-title">Customer-Centered Transformation Ecosystem</h2>
+        <p class="section-sub">Every service we deliver is orchestrated around your outcomes — the customer always at
+          the center of our ecosystem.</p>
+      </div>
+
+      <div class="ecosystem-wrap reveal" style="display: flex; justify-content: center; align-items: center; margin: 30px auto 50px; max-width: 480px;">
+        <img src="tc.png" alt="Transformation Ecosystem Diagram" style="width: 100%; height: auto; mix-blend-mode: multiply;" />
+      </div>
+
+      <!-- Programs Grid -->
+      <div class="programs-grid" id="programs" style="margin-top: 80px;">
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+          <h3>Invoice Scanning &amp; Work Queue Management</h3>
+          <p>AI-powered invoice capture, routing, and approval automation for faster processing.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+          <h3>EBS to Oracle SaaS Cloud Migration</h3>
+          <p>Seamless migration from Oracle EBS to Oracle Cloud with minimal disruption.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-icon"><i class="fa-solid fa-sitemap"></i></div>
+          <h3>Chart of Accounts Design</h3>
+          <p>Future-ready financial structures for reporting, compliance, and scalability.</p>
+         
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fa-solid fa-headset"></i></div>
+          <h3>Sales Support</h3>
+          <p>Technical pre-sales support, solution scoping, and proposal assistance.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-icon"><i class="fa-solid fa-list-check"></i></div>
+          <h3>Implementation RFP &amp; Vendor Selection</h3>
+          <p>RFP creation and vendor evaluation to select the right implementation partner.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-icon"><i class="fa-solid fa-flask"></i></div>
+          <h3>Testing Automation Tools</h3>
+          <p>Automated testing frameworks that improve coverage and reduce testing time.</p>
+          
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <h3>Month-End Close Support</h3>
+          <p>Operational support to streamline and accelerate financial close processes.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-icon"><i class="fa-solid fa-wrench"></i></div>
+          <h3>Day 2 Maintenance &amp; Support</h3>
+          <p>Ongoing support, enhancements, and optimization for Oracle environments.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-icon"><i class="fa-solid fa-database"></i></div>
+          <h3>Data Migration Automation</h3>
+          <p>Automated data migration tools for faster, low-risk Oracle Cloud transitions.</p>
+          
+        </div>
+        <div class="program-card reveal">
+          <div class="program-icon"><i class="fa-solid fa-plug"></i></div>
+          <h3>Integration Development</h3>
+          <p>Custom integrations connecting Oracle Cloud with enterprise systems.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-icon"><i class="fa-solid fa-book-open"></i></div>
+          <h3>Job Aids &amp; Process Documentation</h3>
+          <p>User guides, SOPs, and training materials to improve adoption.</p>
+          
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-icon"><i class="fa-solid fa-ticket"></i></div>
+          <h3>ServiceNow Offerings</h3>
+          <p>ServiceNow implementation, managed services, and custom platform solutions.</p>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- ══ INDUSTRIES ══════════════════════════════════════════════ -->
+<section class="section section-alt" id="industries">
+  <div class="wrap">
+    <div class="section-header center reveal">
+      <span class="eyebrow">Industry Solutions</span>
+      <h2 class="section-title">Deep Expertise Across Key Verticals</h2>
+      <p class="section-sub">
+        Industry-specific accelerators and frameworks that reduce risk and speed up delivery.
+      </p>
+    </div>
+
+    <div class="industries-grid">
+      <div class="industry-card reveal">
+        <div class="industry-icon"><i class="fa-solid fa-landmark"></i></div>
+        <h3>Financial Services</h3>
+        <p>ERP solutions for banking, insurance, and financial operations.</p>
+        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="industry-card reveal reveal-delay-1">
+        <div class="industry-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h3>Healthcare</h3>
+        <p>HIPAA-compliant ERP solutions for healthcare and life sciences.</p>
+        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="industry-card reveal reveal-delay-2">
+        <div class="industry-icon"><i class="fa-solid fa-microchip"></i></div>
+        <h3>Hi-Tech</h3>
+        <p>Cloud solutions for fast-growing technology and semiconductor companies.</p>
+        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="industry-card reveal reveal-delay-3">
+        <div class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3>Higher Education</h3>
+        <p>Modern ERP systems for universities and educational institutions.</p>
+        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+      <div class="industry-card reveal reveal-delay-4">
+        <div class="industry-icon"><i class="fa-solid fa-shopping-cart"></i></div>
+        <h3>Retail</h3>
+        <p>Retail and supply chain solutions for omni-channel businesses.</p>
+        <a href="#contact" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></div>
+          <p class="footer-tagline">30+ years of implementation experience delivering transformational programs to
+            enterprise clients worldwide.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Oracle Cloud ERP</a></li>
+            <li><a href="#programs">EBS Migration</a></li>
+            <li><a href="#programs">Invoice Scanning AI</a></li>
+            <li><a href="#services">ServiceNow</a></li>
+            <li><a href="#services">Integration (OIC/MuleSoft)</a></li>
+            <li><a href="#programs">Day 2 Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Industries</h4>
+          <ul class="footer-links">
+            <li><a href="#industries">Financial Services</a></li>
+            <li><a href="#industries">Healthcare</a></li>
+            <li><a href="#industries">Hi-Tech</a></li>
+            <li><a href="#industries">Higher Education</a></li>
+            <li><a href="#industries">Retail</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#methodology">About Upari</a></li>
+            <li><a href="#" onclick="alert('Leadership page coming soon.')">Leadership</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="index.html#resources">Whitepapers</a></li>
+            <li><a href="#" onclick="alert('Terms & Conditions coming soon.')">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 upariconsulting.com &nbsp;·&nbsp; All rights reserved</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══ MODAL ══════════════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="modal" id="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <p class="modal-title">Get in Touch</p>
+      <p class="modal-sub">Our team will reach out within 1 business day.</p>
+      <!-- Honeypot -->
+      <input type="text" name="website_modal" class="hp-field" id="m-hp" tabindex="-1" autocomplete="off">
+      <div id="modalFormContent">
+        <div class="form-grid">
+          <div class="field">
+            <label>Full Name *</label>
+            <input type="text" placeholder="Jane Smith" id="f-name" maxlength="100" />
+          </div>
+          <div class="field">
+            <label>Designation</label>
+            <input type="text" placeholder="CTO, VP Finance…" id="f-desig" maxlength="100" />
+          </div>
+          <div class="field">
+            <label>Email *</label>
+            <input type="email" placeholder="you@company.com" id="f-email" maxlength="150" />
+          </div>
+          <div class="field">
+            <label>Company</label>
+            <input type="text" placeholder="Acme Corp" id="f-company" maxlength="150" />
+          </div>
+          <div class="field form-full">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your project or what you'd like to explore…" id="f-msg"
+              maxlength="2000"></textarea>
+          </div>
+        </div>
+        <button type="button" class="submit-btn" id="modalSubmitBtn" onclick="handleModalSubmit()">Send Message
+          →</button>
+      </div>
+      <div class="success-msg" id="modalSuccess">✓ &nbsp; Thank you! We'll be in touch shortly.</div>
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+    aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
