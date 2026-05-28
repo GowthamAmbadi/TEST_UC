@@ -1,11 +1,10 @@
     /* ─── Theme Support Initialization ──────────── */
     (function() {
       const savedTheme = localStorage.getItem('theme');
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      if (savedTheme === 'light' || (!savedTheme && prefersLight)) {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
+      if (savedTheme === 'dark') {
         document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
 
