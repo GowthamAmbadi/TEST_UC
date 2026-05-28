@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,6 +31,10 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
         <button class="nav-cta" onclick="openModal()">Get in Touch</button>
         <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleMobile()">
           <span></span><span></span><span></span>
@@ -51,67 +55,123 @@
   </div>
 
   <section class="hero">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
     <div class="hero-grid"></div>
     <div class="wrap" style="width:100%">
       <div class="hero-inner">
         <div class="hero-left">
           <div class="hero-badge"><span class="dot"></span>Enterprise Transformation · EST. 1994</div>
-          <h1 class="hero-title">Building <span class="accent">Intelligent</span><br>Enterprises</h1>
-          <p class="hero-focus">AI &nbsp;·&nbsp; Oracle Cloud &nbsp;·&nbsp; ERP &nbsp;·&nbsp; ServiceNow</p>
-          <p class="hero-sub">30+ years of implementation experience delivering transformational programs to enterprises
-            across Financial Services, Healthcare, Hi-Tech and Higher Education.</p>
+          <h1 class="hero-title">Architecting the Future of <span class="accent">Intelligent</span> Enterprises</h1>
+          <p class="hero-focus">AI Automation &nbsp;·&nbsp; Oracle SaaS Cloud &nbsp;·&nbsp; ERP &nbsp;·&nbsp; ServiceNow</p>
+          <p class="hero-sub">Upari Consulting delivers 30+ years of implementation leadership, helping Fortune 500 companies migrate legacy systems, orchestrate OIC integrations, and unlock AI automation.</p>
           <div class="hero-actions">
             <button class="btn-primary" onclick="openModal()">Start a Conversation →</button>
             <a href="services.html" class="btn-ghost">Explore Services</a>
           </div>
           <div class="hero-trust">
-            <span class="hero-trust-text">Trusted For</span>
+            <span class="hero-trust-text">Strategic Partnerships</span>
             <div class="hero-trust-logos">
               <div class="trust-chip">Oracle Cloud</div>
               <div class="trust-chip">ServiceNow</div>
               <div class="trust-chip">MuleSoft</div>
-              <div class="trust-chip">AI/ML</div>
+              <div class="trust-chip">Enterprise AI/ML</div>
             </div>
           </div>
         </div>
         <div class="hero-visual">
           <div style="position:relative">
             <div class="float-badge top-right"><i class="fa-solid fa-shield-check"></i>Oracle Certified</div>
-            <div class="hero-transform-card">
+            <div class="hero-transform-card glass-panel">
               <div class="htc-head">
-                <span class="htc-label">Transformation Journey</span>
-                <span class="htc-badge">Active</span>
+                <span class="htc-label">Transformation Framework</span>
+                <span class="htc-badge">Interactive</span>
               </div>
-              <div class="journey-steps">
-                <div class="journey-step">
-                  <div class="js-num">1</div>
-                  <div class="js-content">
-                    <div class="js-title">Assess &amp; Discover</div>
-                    <div class="js-desc">Current state analysis, gap identification, roadmap definition</div>
+              
+              <!-- Tab buttons -->
+              <div class="journey-tabs">
+                <button class="j-tab active" data-step="1" onclick="switchHeroStep(1)">
+                  <span class="jt-num">01</span> Discover
+                </button>
+                <button class="j-tab" data-step="2" onclick="switchHeroStep(2)">
+                  <span class="jt-num">02</span> Architect
+                </button>
+                <button class="j-tab" data-step="3" onclick="switchHeroStep(3)">
+                  <span class="jt-num">03</span> Execute
+                </button>
+                <button class="j-tab" data-step="4" onclick="switchHeroStep(4)">
+                  <span class="jt-num">04</span> Support
+                </button>
+              </div>
+
+              <!-- Dynamic Content Area -->
+              <div class="journey-content-pane">
+                <div class="j-pane active" id="pane-1">
+                  <div class="pane-header">
+                    <div class="pane-icon"><i class="fa-solid fa-compass"></i></div>
+                    <div>
+                      <h4>Assess &amp; Discover</h4>
+                      <p class="pane-meta">Phase 01 · Strategic Analysis</p>
+                    </div>
+                  </div>
+                  <p class="pane-text">Comprehensive current state analysis, custom gap assessments, business process mapping, and a multi-year cloud transformation roadmap.</p>
+                  <div class="pane-stats">
+                    <div class="p-stat"><strong>2-4 Wks</strong> Avg. Duration</div>
+                    <div class="p-stat"><strong>100%</strong> Alignment</div>
                   </div>
                 </div>
-                <div class="journey-step active">
-                  <div class="js-num">2</div>
-                  <div class="js-content">
-                    <div class="js-title">Design &amp; Architect</div>
-                    <div class="js-desc">Solution design, COA framework, integration blueprints</div>
+                
+                <div class="j-pane" id="pane-2">
+                  <div class="pane-header">
+                    <div class="pane-icon"><i class="fa-solid fa-bezier-curve"></i></div>
+                    <div>
+                      <h4>Design &amp; Architect</h4>
+                      <p class="pane-meta">Phase 02 · Technical Blueprinting</p>
+                    </div>
+                  </div>
+                  <p class="pane-text">Target operating model design, Chart of Accounts (COA) modernization, and high-performance integration blueprints using Oracle OIC &amp; MuleSoft.</p>
+                  <div class="pane-stats">
+                    <div class="p-stat"><strong>Oracle SaaS</strong> Fitment</div>
+                    <div class="p-stat"><strong>Scalable</strong> COA Schema</div>
                   </div>
                 </div>
-                <div class="journey-step">
-                  <div class="js-num">3</div>
-                  <div class="js-content">
-                    <div class="js-title">Build &amp; Implement</div>
-                    <div class="js-desc">Agile sprints, configuration, data migration, testing</div>
+
+                <div class="j-pane" id="pane-3">
+                  <div class="pane-header">
+                    <div class="pane-icon"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                      <h4>Build &amp; Implement</h4>
+                      <p class="pane-meta">Phase 03 · Configuration &amp; Dev</p>
+                    </div>
+                  </div>
+                  <p class="pane-text">Agile configuration sprints, automated data migration, custom integrations development, and thorough testing automation to compress deployment timelines.</p>
+                  <div class="pane-stats">
+                    <div class="p-stat"><strong>Automated</strong> QA Tooling</div>
+                    <div class="p-stat"><strong>Zero-Risk</strong> Extraction</div>
                   </div>
                 </div>
-                <div class="journey-step">
-                  <div class="js-num">4</div>
-                  <div class="js-content">
-                    <div class="js-title">Launch &amp; Optimize</div>
-                    <div class="js-desc">Go-live, hypercare, Day 2 managed services</div>
+
+                <div class="j-pane" id="pane-4">
+                  <div class="pane-header">
+                    <div class="pane-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div>
+                      <h4>Launch &amp; Optimize</h4>
+                      <p class="pane-meta">Phase 04 · Cutover &amp; AMS</p>
+                    </div>
+                  </div>
+                  <p class="pane-text">Flawless cutover orchestration, hypercare support, custom role-based job aids, and SLA-guaranteed Day 2 managed services (AMS) for continual optimization.</p>
+                  <div class="pane-stats">
+                    <div class="p-stat"><strong>24/7</strong> Monitoring</div>
+                    <div class="p-stat"><strong>99.9%</strong> SLA Assurance</div>
                   </div>
                 </div>
               </div>
+              
+              <!-- Progress Indicator -->
+              <div class="journey-progress-bar">
+                <div class="jp-fill" id="journeyProgressFill" style="width: 25%"></div>
+              </div>
+
             </div>
             <div class="float-badge bot-left"><i class="fa-solid fa-chart-line"></i>Enterprise Grade</div>
           </div>
@@ -123,61 +183,61 @@
   <!-- ══ TICKER ════════════════════════════════════════════════ -->
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Oracle Fusion ERP</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>EBS to Cloud Migration</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Invoice Scanning &amp; AI Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Chart of Accounts Design</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>ServiceNow ITSM</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>OIC Integration Development</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Data Migration Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Month-End Close Support</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Testing Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>HCM Implementation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Financial Services</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Healthcare Technology</span>
+      <span class="ticker-item"><i class="fa-solid fa-cloud"></i>Oracle Fusion ERP</span>
+      <span class="ticker-item"><i class="fa-solid fa-network-wired"></i>EBS to Cloud Migration</span>
+      <span class="ticker-item"><i class="fa-solid fa-brain"></i>Invoice Scanning &amp; AI Automation</span>
+      <span class="ticker-item"><i class="fa-solid fa-folder-tree"></i>Chart of Accounts Design</span>
+      <span class="ticker-item"><i class="fa-solid fa-ticket"></i>ServiceNow ITSM</span>
+      <span class="ticker-item"><i class="fa-solid fa-plug"></i>OIC Integration Development</span>
+      <span class="ticker-item"><i class="fa-solid fa-database"></i>Data Migration Automation</span>
+      <span class="ticker-item"><i class="fa-solid fa-calendar-check"></i>Month-End Close Support</span>
+      <span class="ticker-item"><i class="fa-solid fa-vial"></i>Testing Automation</span>
+      <span class="ticker-item"><i class="fa-solid fa-users"></i>HCM Implementation</span>
+      <span class="ticker-item"><i class="fa-solid fa-landmark"></i>Financial Services</span>
+      <span class="ticker-item"><i class="fa-solid fa-hospital"></i>Healthcare Technology</span>
       <!-- duplicated for seamless loop -->
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Oracle Fusion ERP</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>EBS to Cloud Migration</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Invoice Scanning &amp; AI Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Chart of Accounts Design</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>ServiceNow ITSM</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>OIC Integration Development</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Data Migration Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Month-End Close Support</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Testing Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>HCM Implementation</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Financial Services</span>
-      <span class="ticker-item"><i class="fa-solid fa-circle"></i>Healthcare Technology</span>
+      <span class="ticker-item"><i class="fa-solid fa-cloud"></i>Oracle Fusion ERP</span>
+      <span class="ticker-item"><i class="fa-solid fa-network-wired"></i>EBS to Cloud Migration</span>
+      <span class="ticker-item"><i class="fa-solid fa-brain"></i>Invoice Scanning &amp; AI Automation</span>
+      <span class="ticker-item"><i class="fa-solid fa-folder-tree"></i>Chart of Accounts Design</span>
+      <span class="ticker-item"><i class="fa-solid fa-ticket"></i>ServiceNow ITSM</span>
+      <span class="ticker-item"><i class="fa-solid fa-plug"></i>OIC Integration Development</span>
+      <span class="ticker-item"><i class="fa-solid fa-database"></i>Data Migration Automation</span>
+      <span class="ticker-item"><i class="fa-solid fa-calendar-check"></i>Month-End Close Support</span>
+      <span class="ticker-item"><i class="fa-solid fa-vial"></i>Testing Automation</span>
+      <span class="ticker-item"><i class="fa-solid fa-users"></i>HCM Implementation</span>
+      <span class="ticker-item"><i class="fa-solid fa-landmark"></i>Financial Services</span>
+      <span class="ticker-item"><i class="fa-solid fa-hospital"></i>Healthcare Technology</span>
     </div>
   </div>
 
-  <!-- ══ COUNTERS ═══════════════════════════════════════════════
-  <section class="section-sm section-white">
+  <!-- ══ COUNTERS ═══════════════════════════════════════════════ -->
+  <section class="section-sm" style="position: relative; z-index: 10;">
     <div class="wrap">
       <div class="counters-grid">
-        <div class="counter-cell">
+        <div class="counter-cell glass-panel reveal">
           <div class="counter-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <div class="counter-num" data-target="30" data-suffix="+">30+</div>
+          <div class="counter-num" data-target="30" data-suffix="+">0+</div>
           <div class="counter-label">Years of Experience</div>
         </div>
-        <div class="counter-cell">
+        <div class="counter-cell glass-panel reveal reveal-delay-1">
           <div class="counter-icon"><i class="fa-solid fa-briefcase"></i></div>
-          <div class="counter-num" data-target="200" data-suffix="+">200+</div>
+          <div class="counter-num" data-target="200" data-suffix="+">0+</div>
           <div class="counter-label">Engagements Delivered</div>
         </div>
-        <div class="counter-cell">
+        <div class="counter-cell glass-panel reveal reveal-delay-2">
           <div class="counter-icon"><i class="fa-solid fa-globe"></i></div>
-          <div class="counter-num" data-target="3" data-suffix="">3</div>
+          <div class="counter-num" data-target="3" data-suffix="">0</div>
           <div class="counter-label">Global Locations</div>
         </div>
-        <div class="counter-cell">
+        <div class="counter-cell glass-panel reveal reveal-delay-3">
           <div class="counter-icon"><i class="fa-solid fa-award"></i></div>
-          <div class="counter-num" data-target="95" data-suffix="%">95%</div>
+          <div class="counter-num" data-target="95" data-suffix="%">0%</div>
           <div class="counter-label">Client Retention Rate</div>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- ══ METHODOLOGY ════════════════════════════════════════════ -->
   <section class="section" id="methodology">
@@ -189,7 +249,7 @@
               <i class="fa-solid fa-circle-check"></i>
               Oracle Certified Experts
             </div>
-            <div class="method-card-main">
+            <div class="method-card-main glass-panel">
               <div class="method-card-banner">
                 <div class="method-banner-content">
                   <div class="method-banner-num">30+</div>
@@ -269,6 +329,142 @@
     </div>
   </section>
 
+  <!-- ══ SERVICES & CAPABILITIES ════════════════════════════════ -->
+  <section class="section section-alt" id="services">
+    <div class="wrap">
+      <div class="section-header center reveal">
+        <span class="eyebrow">Services &amp; Capabilities</span>
+        <h2 class="section-title">Enterprise Transformation Ecosystem</h2>
+        <p class="section-sub">We combine deep domain expertise with proprietary accelerators to deliver robust cloud solutions and automated workflows.</p>
+      </div>
+      
+      <div class="services-modern-grid">
+        <!-- Service Card 1 -->
+        <div class="service-modern-card glass-panel reveal">
+          <div class="sm-card-icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Oracle Cloud SaaS</h3>
+          <p>Full-lifecycle implementation and migration for Oracle Fusion Financials, SCM, Procurement, HCM, and Projects.</p>
+          <div class="sm-card-tags">
+            <span class="sm-tag">Fusion ERP</span>
+            <span class="sm-tag">HCM Cloud</span>
+            <span class="sm-tag">SCM Cloud</span>
+          </div>
+          <a href="services.html#services" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="service-modern-card glass-panel reveal reveal-delay-1">
+          <div class="sm-card-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>AI &amp; Work Queue Automation</h3>
+          <p>Intelligent document processing (OCR), automated invoice scanning, workflow capture, and machine learning analytics.</p>
+          <div class="sm-card-tags">
+            <span class="sm-tag">Invoice Scanning</span>
+            <span class="sm-tag">OCR AI</span>
+            <span class="sm-tag">Process Mining</span>
+          </div>
+          <a href="services.html#programs" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="service-modern-card glass-panel reveal reveal-delay-2">
+          <div class="sm-card-icon"><i class="fa-solid fa-plug"></i></div>
+          <h3>Integration Middleware</h3>
+          <p>Enterprise integrations connecting Oracle Cloud with Salesforce, legacy systems, and third-party APIs via OIC and MuleSoft.</p>
+          <div class="sm-card-tags">
+            <span class="sm-tag">Oracle OIC</span>
+            <span class="sm-tag">MuleSoft</span>
+            <span class="sm-tag">REST / SOAP</span>
+          </div>
+          <a href="services.html#services" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="service-modern-card glass-panel reveal">
+          <div class="sm-card-icon"><i class="fa-solid fa-ticket"></i></div>
+          <h3>ServiceNow Offerings</h3>
+          <p>End-to-end ServiceNow platform implementations, custom service delivery setup, ITSM, and ITOM managed services.</p>
+          <div class="sm-card-tags">
+            <span class="sm-tag">ITSM</span>
+            <span class="sm-tag">ITOM</span>
+            <span class="sm-tag">HR Delivery</span>
+          </div>
+          <a href="services.html#services" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="service-modern-card glass-panel reveal reveal-delay-1">
+          <div class="sm-card-icon"><i class="fa-solid fa-bezier-curve"></i></div>
+          <h3>Consulting Capabilities</h3>
+          <p>Expert advisory for vendor selections, structured RFP management, Month-End Close, and Chart of Accounts (COA) redesigns.</p>
+          <div class="sm-card-tags">
+            <span class="sm-tag">COA Redesign</span>
+            <span class="sm-tag">RFP Advisory</span>
+            <span class="sm-tag">Month-End Close</span>
+          </div>
+          <a href="services.html#programs" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="service-modern-card glass-panel reveal reveal-delay-2">
+          <div class="sm-card-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Testing &amp; Day 2 Support</h3>
+          <p>Automated regression testing frameworks, post-go-live managed services, and robust AMS support contracts.</p>
+          <div class="sm-card-tags">
+            <span class="sm-tag">Test Automation</span>
+            <span class="sm-tag">Hypercare</span>
+            <span class="sm-tag">Day 2 AMS</span>
+          </div>
+          <a href="services.html#programs" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESS / WORKFLOW TIMELINE ════════════════════════════ -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="section-header center reveal">
+        <span class="eyebrow">Implementation Process</span>
+        <h2 class="section-title">Our Structured Delivery Lifecycle</h2>
+        <p class="section-sub">A disciplined, risk-managed approach that ensures on-time and on-scope implementations.</p>
+      </div>
+
+      <div class="process-timeline reveal">
+        <!-- Step 1 -->
+        <div class="process-step">
+          <div class="ps-number">01</div>
+          <div class="ps-indicator"><span class="ps-dot"></span></div>
+          <h4>Alignment &amp; Discovery</h4>
+          <p>We analyze your business goals, identify functional gaps, and design a customized migration roadmap.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step">
+          <div class="ps-number">02</div>
+          <div class="ps-indicator"><span class="ps-dot"></span></div>
+          <h4>COA &amp; Architecture</h4>
+          <p>We redesign your Chart of Accounts and configure OIC or MuleSoft integration architectures.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step">
+          <div class="ps-number">03</div>
+          <div class="ps-indicator"><span class="ps-dot"></span></div>
+          <h4>Agile Build &amp; Migrate</h4>
+          <p>We execute configuration sprints and automate data migration to ensure pristine, validated records.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step">
+          <div class="ps-number">04</div>
+          <div class="ps-indicator"><span class="ps-dot"></span></div>
+          <h4>Testing &amp; Go-Live</h4>
+          <p>Using automated testing scripts, we run regression tests before seamless cutover hypercare support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══ RESOURCES ══════════════════════════════════════════════ -->
   <section class="section section-white" id="resources">
     <div class="wrap">
@@ -318,6 +514,117 @@
               their COA architecture for Oracle Fusion and global consolidation.</p>
             <a href="#contact" class="resource-link" style="color:var(--amber)">Read Use Case <i
                 class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ INDUSTRY EXPERTISE ════════════════════════════════════ -->
+  <section class="section section-alt" id="industries">
+    <div class="wrap">
+      <div class="section-header center reveal">
+        <span class="eyebrow">Industry Solutions</span>
+        <h2 class="section-title">Deep Expertise Across Key Verticals</h2>
+        <p class="section-sub">We deploy industry-specific configurations, compliance models, and pre-built integration templates to solve complex sector challenges.</p>
+      </div>
+
+      <div class="industries-grid">
+        <!-- Financial Services -->
+        <div class="industry-card glass-panel reveal">
+          <div class="industry-icon"><i class="fa-solid fa-landmark"></i></div>
+          <h3>Financial Services</h3>
+          <p>Multi-currency ledger design, regulatory reporting templates, automated month-end consolidation, and secure sub-ledger accounting setups.</p>
+          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Healthcare -->
+        <div class="industry-card glass-panel reveal reveal-delay-1">
+          <div class="industry-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+          <h3>Healthcare</h3>
+          <p>HIPAA-compliant procurement cycles, automated supply chains for multi-location hospitals, and seamless integrations with EHR systems.</p>
+          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Hi-Tech -->
+        <div class="industry-card glass-panel reveal reveal-delay-2">
+          <div class="industry-icon"><i class="fa-solid fa-microchip"></i></div>
+          <h3>Hi-Tech</h3>
+          <p>Agile product lifecycle configurations, supply chain demand forecasting, multi-entity tax structures, and high-growth revenue recognition.</p>
+          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Higher Education -->
+        <div class="industry-card glass-panel reveal reveal-delay-3">
+          <div class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Higher Education</h3>
+          <p>Unified payroll and position control models, specialized grants management setups, and student finance reporting systems.</p>
+          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Retail -->
+        <div class="industry-card glass-panel reveal reveal-delay-4">
+          <div class="industry-icon"><i class="fa-solid fa-shopping-cart"></i></div>
+          <h3>Retail</h3>
+          <p>Omni-channel supply chain tracking, automated warehouse operations, inventory forecasting, and real-time point-of-sale cloud integrations.</p>
+          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ══════════════════════════════════════════ -->
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="section-header center reveal">
+        <span class="eyebrow">Client Success</span>
+        <h2 class="section-title">Trusted by Global Enterprise Leaders</h2>
+        <p class="section-sub">Here is how we help organizations migrate to the cloud, automate complex workflows, and execute digital transformation.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card glass-panel reveal">
+          <div class="t-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="t-quote">"Upari Consulting's expertise was instrumental in our shift from Oracle EBS to SaaS Cloud. Their migration tool eliminated downtime, and our chart of accounts was completely optimized for global compliance."</p>
+          <div class="t-author">
+            <div class="ta-avatar"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+              <strong>Robert Chen</strong>
+              <span>VP of Global Finance · Tech Manufacturing Corp</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card glass-panel reveal reveal-delay-1">
+          <div class="t-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="t-quote">"We automated our invoice routing and scanning queues using Upari's AI tools. It cut our invoice processing duration by 70%. Their onshore-offshore model gives us 24/7 coverage with fantastic responsiveness."</p>
+          <div class="t-author">
+            <div class="ta-avatar"><i class="fa-solid fa-user-doctor"></i></div>
+            <div>
+              <strong>Dr. Sarah Jenkins</strong>
+              <span>Chief Information Officer · Healthcare Group</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card glass-panel reveal reveal-delay-2">
+          <div class="t-rating">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="t-quote">"Their ServiceNow ITSM rollout was flawless, and the integrations built via OIC connecting Oracle ERP and Salesforce operate seamlessly. They are a true strategic partner who manages risk meticulously."</p>
+          <div class="t-author">
+            <div class="ta-avatar"><i class="fa-solid fa-user-gear"></i></div>
+            <div>
+              <strong>Marcus Vance</strong>
+              <span>Director of Enterprise Applications · Hi-Tech SaaS Co</span>
+            </div>
           </div>
         </div>
       </div>

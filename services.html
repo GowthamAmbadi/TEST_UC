@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -31,6 +31,10 @@
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
         <button class="nav-cta" onclick="openModal()">Get in Touch</button>
         <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleMobile()">
           <span></span><span></span><span></span>
