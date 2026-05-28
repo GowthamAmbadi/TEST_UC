@@ -1,880 +1,1298 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Upari Consulting — AI | Oracle Cloud | ERP | ServiceNow</title>
-  <meta name="description"
-    content="Upari Consulting delivers 30+ years of enterprise implementation experience across Oracle Cloud, ERP, AI and ServiceNow." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UPARI Consulting — Oracle ERP Cloud Specialists</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="style.css" />
-  <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark') {
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy-900: #042C53;
+      --navy-700: #185FA5;
+      --navy-500: #378ADD;
+      --navy-100: #E6F1FB;
+      --teal-800: #085041;
+      --teal-600: #0F6E56;
+      --teal-400: #1D9E75;
+      --teal-300: #5DCAA5;
+      --teal-100: #E1F5EE;
+      --teal-50:  #9FE1CB;
+      --amber-600: #854F0B;
+      --amber-100: #FAEEDA;
+      --gray-900: #2C2C2A;
+      --gray-700: #5F5E5A;
+      --gray-400: #888780;
+      --gray-200: #B4B2A9;
+      --gray-100: #D3D1C7;
+      --gray-50:  #F1EFE8;
+      --white: #ffffff;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--gray-900);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      background: var(--navy-900);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--teal-300);
+    }
+    .nav-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--navy-900);
+    }
+    .nav-name span {
+      font-size: 11px;
+      font-family: var(--font-sans);
+      font-weight: 400;
+      color: var(--gray-400);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-link {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--gray-700);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--navy-900); }
+    .nav-cta {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 18px;
+      background: var(--navy-900);
+      color: var(--teal-300);
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--navy-700); }
+    .nav-mobile-toggle { display: none; cursor: pointer; font-size: 22px; color: var(--navy-900); background: none; border: none; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-700) 55%, var(--teal-600) 100%);
+      padding: 80px 48px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 48px, rgba(255,255,255,0.02) 48px, rgba(255,255,255,0.02) 49px);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(93,202,165,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-300);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--teal-300);
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6vw, 64px);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--teal-300);
+    }
+    .hero-tagline {
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .hero-body {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: start;
+      margin-top: 16px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      background: var(--teal-300);
+      color: var(--teal-800);
+      font-size: 13px;
+      font-weight: 500;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--teal-50); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      background: transparent;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-weight: 400;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.55); color: var(--white); }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 32px;
+    }
+    .hero-badge {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      padding: 5px 12px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 2px;
+      color: rgba(255,255,255,0.55);
+    }
+    .hero-stats {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .hero-stat-num {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-num span { color: var(--teal-300); font-size: 22px; }
+    .hero-stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 64px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: 64px 48px;
+    }
+    .section-full-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-100);
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--navy-900);
+      margin-bottom: 12px;
+    }
+    .section-title em { font-style: italic; color: var(--navy-700); }
+    .section-intro {
+      font-size: 15px;
+      color: var(--gray-700);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    /* ── MISSION ── */
+    .mission-band {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-100);
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .mission-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .mission-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+    .mission-divider {
+      width: 32px;
+      height: 2px;
+      background: var(--teal-300);
+      margin: 12px 0;
+    }
+    .mission-text {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 300;
+      line-height: 1.55;
+      color: var(--navy-900);
+    }
+    .mission-text em { font-style: italic; color: var(--navy-700); }
+    .mission-sub {
+      font-size: 14px;
+      color: var(--gray-700);
+      line-height: 1.7;
+      margin-top: 16px;
+    }
+
+    /* ── SERVICES GRID ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .service-card {
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .service-card:hover {
+      border-color: var(--navy-700);
+      box-shadow: 0 4px 20px rgba(4,44,83,0.08);
+      transform: translateY(-2px);
+    }
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-size: 20px;
+    }
+    .icon-blue  { background: var(--navy-100); color: var(--navy-700); }
+    .icon-teal  { background: var(--teal-100); color: var(--teal-600); }
+    .icon-amber { background: var(--amber-100); color: var(--amber-600); }
+    .service-card h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy-900);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .service-card p {
+      font-size: 13px;
+      color: var(--gray-700);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .service-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--navy-700);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--navy-100);
+      padding-bottom: 2px;
+      transition: border-color 0.2s;
+    }
+    .service-link:hover { border-color: var(--navy-700); }
+
+    /* ── STAT BAR ── */
+    .stat-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .stat-cell {
+      padding: 20px 24px;
+      border-right: 1px solid var(--gray-100);
+    }
+    .stat-cell:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--navy-900);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--gray-400);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── OFFERINGS ── */
+    .offerings-band { background: var(--gray-50); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 8px;
+    }
+    .offer-card {
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer-card.dark {
+      background: var(--navy-900);
+    }
+    .offer-card.light {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+    }
+    .offer-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+    }
+    .dark .offer-tag { background: rgba(93,202,165,0.18); color: var(--teal-300); }
+    .light .offer-tag { background: var(--teal-100); color: var(--teal-600); }
+    .offer-card h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .dark h3 { color: var(--white); }
+    .light h3 { color: var(--navy-900); }
+    .offer-card p { font-size: 13px; line-height: 1.7; margin-bottom: 20px; }
+    .dark p { color: rgba(255,255,255,0.62); }
+    .light p { color: var(--gray-700); }
+    .offer-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .offer-features li {
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .dark .offer-features li { color: rgba(255,255,255,0.65); }
+    .light .offer-features li { color: var(--gray-700); }
+    .offer-features li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dark .offer-features li::before { background: var(--teal-300); }
+    .light .offer-features li::before { background: var(--teal-400); }
+    .btn-offer-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--teal-300);
+      color: var(--teal-800);
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .btn-offer-dark:hover { background: var(--teal-50); }
+    .btn-offer-light {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--navy-900);
+      color: var(--teal-300);
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: background 0.2s;
+    }
+    .btn-offer-light:hover { background: var(--navy-700); }
+
+    /* ── WHITEPAPERS ── */
+    .wp-list { display: flex; flex-direction: column; }
+    .wp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--gray-100);
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.15s;
+    }
+    .wp-item:last-child { border-bottom: none; }
+    .wp-item:hover { opacity: 0.7; }
+    .wp-num {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--gray-200);
+      min-width: 36px;
+      line-height: 1;
+      padding-top: 2px;
+    }
+    .wp-info { flex: 1; }
+    .wp-info h4 { font-size: 15px; font-weight: 500; color: var(--navy-900); margin-bottom: 6px; line-height: 1.35; }
+    .wp-info p { font-size: 13px; color: var(--gray-700); line-height: 1.6; margin-bottom: 8px; }
+    .wp-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      background: var(--navy-100);
+      color: var(--navy-700);
+      border-radius: 2px;
+    }
+    .wp-arrow { color: var(--gray-200); margin-top: 4px; font-size: 18px; transition: color 0.15s, transform 0.15s; }
+    .wp-item:hover .wp-arrow { color: var(--navy-700); transform: translateX(4px); }
+
+    /* ── TOOLS & METHODOLOGY ── */
+    .tools-band { background: var(--navy-900); }
+    .tools-inner { max-width: 1100px; margin: 0 auto; padding: 64px 48px; }
+    .tools-label { font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 28px; }
+    .tools-heading {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .tools-heading em { font-style: italic; color: var(--teal-300); }
+    .tools-sub { font-size: 14px; color: rgba(255,255,255,0.55); max-width: 520px; line-height: 1.7; margin-bottom: 40px; }
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .tool-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: background 0.2s;
+    }
+    .tool-card:hover { background: rgba(255,255,255,0.08); }
+    .tool-card-icon {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .tool-card h4 { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 8px; }
+    .tool-card p { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* ── PARTNER ── */
+    .partner-band { background: var(--gray-50); border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100); }
+    .partner-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .partner-left h2 {
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--navy-900);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .partner-left h2 em { font-style: italic; color: var(--navy-700); }
+    .partner-left p { font-size: 14px; color: var(--gray-700); line-height: 1.75; margin-bottom: 24px; }
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .partner-logo-pill {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border: 1px solid var(--gray-100);
+      border-radius: 2px;
+      color: var(--gray-400);
+      background: var(--white);
+    }
+    .partner-contact {
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+    }
+    .partner-contact h3 {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--navy-900);
+      margin-bottom: 16px;
+    }
+    .contact-field {
+      margin-bottom: 12px;
+    }
+    .contact-field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--gray-400);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .contact-field input,
+    .contact-field textarea,
+    .contact-field select {
+      width: 100%;
+      padding: 9px 12px;
+      font-family: var(--font-sans);
+      font-size: 13px;
+      color: var(--gray-900);
+      background: var(--white);
+      border: 1px solid var(--gray-100);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .contact-field input:focus,
+    .contact-field textarea:focus,
+    .contact-field select:focus { border-color: var(--navy-700); }
+    .contact-submit {
+      width: 100%;
+      padding: 11px;
+      background: var(--navy-900);
+      color: var(--teal-300);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      margin-top: 4px;
+      transition: background 0.2s;
+    }
+    .contact-submit:hover { background: var(--navy-700); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-900);
+      padding: 48px 48px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand-block .footer-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .footer-logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: var(--radius-sm);
+      background: rgba(93,202,165,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--teal-300);
+    }
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+    .footer-tagline {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      max-width: 240px;
+    }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 16px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-legal a { font-size: 11px; color: rgba(255,255,255,0.25); text-decoration: none; }
+    .footer-legal a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: var(--white);
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--gray-100);
+        gap: 16px;
+        z-index: 99;
       }
-    })();
-  </script>
+      .hero { padding: 48px 20px 40px; }
+      .hero-body { grid-template-columns: 1fr; gap: 32px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .section, .section-full { padding: 40px 20px; }
+      .section-full-inner { padding: 0; }
+      .services-grid { grid-template-columns: 1fr; }
+      .stat-bar { grid-template-columns: 1fr 1fr; }
+      .stat-cell:nth-child(2) { border-right: none; }
+      .offerings-grid { grid-template-columns: 1fr; }
+      .tools-grid { grid-template-columns: 1fr; }
+      .tools-inner { padding: 40px 20px; }
+      .partner-inner { grid-template-columns: 1fr; gap: 32px; padding: 40px 20px; }
+      .mission-inner { grid-template-columns: 1fr; gap: 20px; padding: 40px 20px; }
+      footer { padding: 40px 20px 24px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ── SCROLL FADE ── */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── ICONS (SVG inline) ── */
+    .icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.12em; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  </style>
 </head>
 <body>
 
-  <!-- ══ NAV ══════════════════════════════════════════════════ -->
-  <nav class="nav" id="nav">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></a>
-            <ul class="nav-links">
-        <li><a href="services.html">Services</a></li>
-        <li><a href="services.html#industries">Industries</a></li>
-        <li><a href="services.html#technologies">Technologies</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="#methodology">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="nav-right">
-        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" onclick="toggleTheme()">
-          <i class="fa-solid fa-moon"></i>
-          <i class="fa-solid fa-sun"></i>
-        </button>
-        <button class="nav-cta" onclick="openModal()">Get in Touch</button>
-        <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleMobile()">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-    <a href="services.html" onclick="closeMobile()">Services</a>
-    <a href="services.html#industries" onclick="closeMobile()">Industries</a>
-    <a href="services.html#technologies" onclick="closeMobile()">Technologies</a>
-    <a href="careers.html" onclick="closeMobile()">Careers</a>
-    <a href="#methodology" onclick="closeMobile()">About</a>
-    <a href="#contact" onclick="closeMobile()">Contact</a>
-    <a class="mob-cta" onclick="closeMobile(); openModal();">Get in Touch →</a>
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">U</div>
+    <span class="nav-name">UPARI <span>Consulting</span></span>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a class="nav-link" href="#services">Services</a>
+    <a class="nav-link" href="#offerings">Offerings</a>
+    <a class="nav-link" href="#whitepapers">Whitepapers</a>
+    <a class="nav-link" href="#tools">Methodology</a>
+    <a class="nav-link" href="#partners">Partners</a>
+    <a class="nav-cta" href="#contact">Get in touch</a>
   </div>
+  <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">&#9776;</button>
+</nav>
 
-  <section class="hero">
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="hero-grid"></div>
-    <div class="wrap" style="width:100%">
-      <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-badge"><span class="dot"></span>Enterprise Transformation · EST. 1994</div>
-          <h1 class="hero-title">Architecting the Future of <span class="accent">Intelligent</span> Enterprises</h1>
-          <p class="hero-focus">AI Automation &nbsp;·&nbsp; Oracle SaaS Cloud &nbsp;·&nbsp; ERP &nbsp;·&nbsp; ServiceNow</p>
-          <p class="hero-sub">Upari Consulting delivers 30+ years of implementation leadership, helping Fortune 500 companies migrate legacy systems, orchestrate OIC integrations, and unlock AI automation.</p>
-          <div class="hero-actions">
-            <button class="btn-primary" onclick="openModal()">Start a Conversation →</button>
-            <a href="services.html" class="btn-ghost">Explore Services</a>
-          </div>
-          <div class="hero-trust">
-            <span class="hero-trust-text">Strategic Partnerships</span>
-            <div class="hero-trust-logos">
-              <div class="trust-chip">Oracle Cloud</div>
-              <div class="trust-chip">ServiceNow</div>
-              <div class="trust-chip">MuleSoft</div>
-              <div class="trust-chip">Enterprise AI/ML</div>
-            </div>
-          </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Oracle ERP Cloud Specialists</div>
+    <h1>Implementation <em>excellence,</em><br>delivered differently.</h1>
+    <p class="hero-tagline">Experienced &nbsp;·&nbsp; Efficient &nbsp;·&nbsp; Results-driven</p>
+    <div class="hero-body">
+      <div>
+        <p class="hero-desc">
+          Formed by seasoned Oracle consulting professionals, UPARI brings enterprise-grade expertise to customers of every size and industry — at optimal cost and in shorter timelines. We combine specialized processes, purpose-built tools, and packaged offerings to help you realize value faster.
+        </p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="#services">
+            <svg class="icon" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            Explore our services
+          </a>
+          <a class="btn-ghost" href="#whitepapers">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Read our whitepapers
+          </a>
         </div>
-        <div class="hero-visual">
-          <div style="position:relative">
-            <div class="float-badge top-right"><i class="fa-solid fa-shield-check"></i>Oracle Certified</div>
-            <div class="hero-transform-card glass-panel">
-              <div class="htc-head">
-                <span class="htc-label">Transformation Framework</span>
-                <span class="htc-badge">Interactive</span>
-              </div>
-              
-              <!-- Tab buttons -->
-              <div class="journey-tabs">
-                <button class="j-tab active" data-step="1" onclick="switchHeroStep(1)">
-                  <span class="jt-num">01</span> Discover
-                </button>
-                <button class="j-tab" data-step="2" onclick="switchHeroStep(2)">
-                  <span class="jt-num">02</span> Architect
-                </button>
-                <button class="j-tab" data-step="3" onclick="switchHeroStep(3)">
-                  <span class="jt-num">03</span> Execute
-                </button>
-                <button class="j-tab" data-step="4" onclick="switchHeroStep(4)">
-                  <span class="jt-num">04</span> Support
-                </button>
-              </div>
-
-              <!-- Dynamic Content Area -->
-              <div class="journey-content-pane">
-                <div class="j-pane active" id="pane-1">
-                  <div class="pane-header">
-                    <div class="pane-icon"><i class="fa-solid fa-compass"></i></div>
-                    <div>
-                      <h4>Assess &amp; Discover</h4>
-                      <p class="pane-meta">Phase 01 · Strategic Analysis</p>
-                    </div>
-                  </div>
-                  <p class="pane-text">Comprehensive current state analysis, custom gap assessments, business process mapping, and a multi-year cloud transformation roadmap.</p>
-                  <div class="pane-stats">
-                    <div class="p-stat"><strong>2-4 Wks</strong> Avg. Duration</div>
-                    <div class="p-stat"><strong>100%</strong> Alignment</div>
-                  </div>
-                </div>
-                
-                <div class="j-pane" id="pane-2">
-                  <div class="pane-header">
-                    <div class="pane-icon"><i class="fa-solid fa-bezier-curve"></i></div>
-                    <div>
-                      <h4>Design &amp; Architect</h4>
-                      <p class="pane-meta">Phase 02 · Technical Blueprinting</p>
-                    </div>
-                  </div>
-                  <p class="pane-text">Target operating model design, Chart of Accounts (COA) modernization, and high-performance integration blueprints using Oracle OIC &amp; MuleSoft.</p>
-                  <div class="pane-stats">
-                    <div class="p-stat"><strong>Oracle SaaS</strong> Fitment</div>
-                    <div class="p-stat"><strong>Scalable</strong> COA Schema</div>
-                  </div>
-                </div>
-
-                <div class="j-pane" id="pane-3">
-                  <div class="pane-header">
-                    <div class="pane-icon"><i class="fa-solid fa-code"></i></div>
-                    <div>
-                      <h4>Build &amp; Implement</h4>
-                      <p class="pane-meta">Phase 03 · Configuration &amp; Dev</p>
-                    </div>
-                  </div>
-                  <p class="pane-text">Agile configuration sprints, automated data migration, custom integrations development, and thorough testing automation to compress deployment timelines.</p>
-                  <div class="pane-stats">
-                    <div class="p-stat"><strong>Automated</strong> QA Tooling</div>
-                    <div class="p-stat"><strong>Zero-Risk</strong> Extraction</div>
-                  </div>
-                </div>
-
-                <div class="j-pane" id="pane-4">
-                  <div class="pane-header">
-                    <div class="pane-icon"><i class="fa-solid fa-rocket"></i></div>
-                    <div>
-                      <h4>Launch &amp; Optimize</h4>
-                      <p class="pane-meta">Phase 04 · Cutover &amp; AMS</p>
-                    </div>
-                  </div>
-                  <p class="pane-text">Flawless cutover orchestration, hypercare support, custom role-based job aids, and SLA-guaranteed Day 2 managed services (AMS) for continual optimization.</p>
-                  <div class="pane-stats">
-                    <div class="p-stat"><strong>24/7</strong> Monitoring</div>
-                    <div class="p-stat"><strong>99.9%</strong> SLA Assurance</div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Progress Indicator -->
-              <div class="journey-progress-bar">
-                <div class="jp-fill" id="journeyProgressFill" style="width: 25%"></div>
-              </div>
-
-            </div>
-            <div class="float-badge bot-left"><i class="fa-solid fa-chart-line"></i>Enterprise Grade</div>
-          </div>
+        <div class="hero-badges">
+          <span class="hero-badge">Finance Cloud</span>
+          <span class="hero-badge">Procurement</span>
+          <span class="hero-badge">Supply Chain</span>
+          <span class="hero-badge">Projects</span>
+          <span class="hero-badge">Global Transformations</span>
+          <span class="hero-badge">Multi-Org</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ══ TICKER ════════════════════════════════════════════════ -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track" id="tickerTrack">
-      <span class="ticker-item"><i class="fa-solid fa-cloud"></i>Oracle Fusion ERP</span>
-      <span class="ticker-item"><i class="fa-solid fa-network-wired"></i>EBS to Cloud Migration</span>
-      <span class="ticker-item"><i class="fa-solid fa-brain"></i>Invoice Scanning &amp; AI Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-folder-tree"></i>Chart of Accounts Design</span>
-      <span class="ticker-item"><i class="fa-solid fa-ticket"></i>ServiceNow ITSM</span>
-      <span class="ticker-item"><i class="fa-solid fa-plug"></i>OIC Integration Development</span>
-      <span class="ticker-item"><i class="fa-solid fa-database"></i>Data Migration Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-calendar-check"></i>Month-End Close Support</span>
-      <span class="ticker-item"><i class="fa-solid fa-vial"></i>Testing Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-users"></i>HCM Implementation</span>
-      <span class="ticker-item"><i class="fa-solid fa-landmark"></i>Financial Services</span>
-      <span class="ticker-item"><i class="fa-solid fa-hospital"></i>Healthcare Technology</span>
-      <!-- duplicated for seamless loop -->
-      <span class="ticker-item"><i class="fa-solid fa-cloud"></i>Oracle Fusion ERP</span>
-      <span class="ticker-item"><i class="fa-solid fa-network-wired"></i>EBS to Cloud Migration</span>
-      <span class="ticker-item"><i class="fa-solid fa-brain"></i>Invoice Scanning &amp; AI Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-folder-tree"></i>Chart of Accounts Design</span>
-      <span class="ticker-item"><i class="fa-solid fa-ticket"></i>ServiceNow ITSM</span>
-      <span class="ticker-item"><i class="fa-solid fa-plug"></i>OIC Integration Development</span>
-      <span class="ticker-item"><i class="fa-solid fa-database"></i>Data Migration Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-calendar-check"></i>Month-End Close Support</span>
-      <span class="ticker-item"><i class="fa-solid fa-vial"></i>Testing Automation</span>
-      <span class="ticker-item"><i class="fa-solid fa-users"></i>HCM Implementation</span>
-      <span class="ticker-item"><i class="fa-solid fa-landmark"></i>Financial Services</span>
-      <span class="ticker-item"><i class="fa-solid fa-hospital"></i>Healthcare Technology</span>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">15<span>+</span></div>
+          <div class="hero-stat-label">Industries served</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">50<span>+</span></div>
+          <div class="hero-stat-label">Implementations</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">30<span>%</span></div>
+          <div class="hero-stat-label">Faster go-live</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">100<span>%</span></div>
+          <div class="hero-stat-label">Oracle focused</div>
+        </div>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- ══ COUNTERS ═══════════════════════════════════════════════ -->
-  <section class="section-sm" style="position: relative; z-index: 10;">
-    <div class="wrap">
-      <div class="counters-grid">
-        <div class="counter-cell glass-panel reveal">
-          <div class="counter-icon"><i class="fa-solid fa-calendar-check"></i></div>
-          <div class="counter-num" data-target="30" data-suffix="+">0+</div>
-          <div class="counter-label">Years of Experience</div>
-        </div>
-        <div class="counter-cell glass-panel reveal reveal-delay-1">
-          <div class="counter-icon"><i class="fa-solid fa-briefcase"></i></div>
-          <div class="counter-num" data-target="200" data-suffix="+">0+</div>
-          <div class="counter-label">Engagements Delivered</div>
-        </div>
-        <div class="counter-cell glass-panel reveal reveal-delay-2">
-          <div class="counter-icon"><i class="fa-solid fa-globe"></i></div>
-          <div class="counter-num" data-target="3" data-suffix="">0</div>
-          <div class="counter-label">Global Locations</div>
-        </div>
-        <div class="counter-cell glass-panel reveal reveal-delay-3">
-          <div class="counter-icon"><i class="fa-solid fa-award"></i></div>
-          <div class="counter-num" data-target="95" data-suffix="%">0%</div>
-          <div class="counter-label">Client Retention Rate</div>
-        </div>
-      </div>
+<!-- MISSION -->
+<div class="mission-band">
+  <div class="mission-inner">
+    <div>
+      <div class="mission-label">Our mission</div>
+      <div class="mission-divider"></div>
     </div>
-  </section>
-
-  <!-- ══ METHODOLOGY ════════════════════════════════════════════ -->
-  <section class="section" id="methodology">
-    <div class="wrap">
-      <div class="methodology-grid">
-        <div class="method-visual reveal">
-          <div style="position:relative">
-            <div class="method-float">
-              <i class="fa-solid fa-circle-check"></i>
-              Oracle Certified Experts
-            </div>
-            <div class="method-card-main glass-panel">
-              <div class="method-card-banner">
-                <div class="method-banner-content">
-                  <div class="method-banner-num">30+</div>
-                  <div class="method-banner-sub">Years of Transformational Excellence</div>
-                </div>
-              </div>
-              <div class="method-card-body">
-                <div class="method-card-row">
-                  <div class="method-card-icon"><i class="fa-solid fa-globe"></i></div>
-                  <div class="method-card-text">
-                    <strong>Global Delivery Model</strong>
-                    <span>US-based leadership with offshore delivery center in Hyderabad, India for 24/7 support and
-                      cost optimization.</span>
-                  </div>
-                </div>
-                <div class="method-card-row">
-                  <div class="method-card-icon"><i class="fa-solid fa-award"></i></div>
-                  <div class="method-card-text">
-                    <strong>Certified Excellence</strong>
-                    <span>Oracle Certified professionals across Fusion ERP, HCM, SCM, BI and Cloud Infrastructure
-                      domains.</span>
-                  </div>
-                </div>
-                <div class="method-card-row">
-                  <div class="method-card-icon"><i class="fa-solid fa-handshake"></i></div>
-                  <div class="method-card-text">
-                    <strong>Client-First Philosophy</strong>
-                    <span>We partner with you through every phase — from strategy to execution to Day 2 support.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <span class="eyebrow">About Upari Consulting</span>
-          <h2 class="section-title">Transforming Enterprises Through Technology &amp; Expertise</h2>
-          <p class="section-sub" style="margin-bottom:32px">Founded with a mission to bridge the gap between complex
-            enterprise technology and real business outcomes, Upari Consulting brings 30+ years of implementation
-            experience delivering transformational programs to clients worldwide.</p>
-          <ul class="value-list">
-            <li class="value-item">
-              <div class="value-icon"><i class="fa-solid fa-brain"></i></div>
-              <div class="value-text">
-                <strong>Deep Domain Expertise</strong>
-                <span>Our consultants average 15+ years of hands-on Oracle implementation experience with certifications
-                  across the full Oracle Cloud suite.</span>
-              </div>
-            </li>
-            <li class="value-item">
-              <div class="value-icon"><i class="fa-solid fa-chart-bar"></i></div>
-              <div class="value-text">
-                <strong>Proven Methodology</strong>
-                <span>Proprietary accelerators, automation tools and pre-built templates reduce implementation
-                  timelines and minimize risk.</span>
-              </div>
-            </li>
-            <li class="value-item">
-              <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
-              <div class="value-text">
-                <strong>Risk-Managed Delivery</strong>
-                <span>Structured RFP processes, vendor selection guidance and thorough testing automation ensure
-                  on-budget, on-scope delivery.</span>
-              </div>
-            </li>
-            <li class="value-item">
-              <div class="value-icon"><i class="fa-solid fa-headset"></i></div>
-              <div class="value-text">
-                <strong>End-to-End Partnership</strong>
-                <span>From initial assessment through go-live and Day 2 maintenance, we are your long-term
-                  transformation partner.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SERVICES & CAPABILITIES ════════════════════════════════ -->
-  <section class="section section-alt" id="services">
-    <div class="wrap">
-      <div class="section-header center reveal">
-        <span class="eyebrow">Services &amp; Capabilities</span>
-        <h2 class="section-title">Enterprise Transformation Ecosystem</h2>
-        <p class="section-sub">We combine deep domain expertise with proprietary accelerators to deliver robust cloud solutions and automated workflows.</p>
-      </div>
-      
-      <div class="services-modern-grid">
-        <!-- Service Card 1 -->
-        <div class="service-modern-card glass-panel reveal">
-          <div class="sm-card-icon"><i class="fa-solid fa-cloud"></i></div>
-          <h3>Oracle Cloud SaaS</h3>
-          <p>Full-lifecycle implementation and migration for Oracle Fusion Financials, SCM, Procurement, HCM, and Projects.</p>
-          <div class="sm-card-tags">
-            <span class="sm-tag">Fusion ERP</span>
-            <span class="sm-tag">HCM Cloud</span>
-            <span class="sm-tag">SCM Cloud</span>
-          </div>
-          <a href="services.html#services" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-        
-        <!-- Service Card 2 -->
-        <div class="service-modern-card glass-panel reveal reveal-delay-1">
-          <div class="sm-card-icon"><i class="fa-solid fa-brain"></i></div>
-          <h3>AI &amp; Work Queue Automation</h3>
-          <p>Intelligent document processing (OCR), automated invoice scanning, workflow capture, and machine learning analytics.</p>
-          <div class="sm-card-tags">
-            <span class="sm-tag">Invoice Scanning</span>
-            <span class="sm-tag">OCR AI</span>
-            <span class="sm-tag">Process Mining</span>
-          </div>
-          <a href="services.html#programs" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-        
-        <!-- Service Card 3 -->
-        <div class="service-modern-card glass-panel reveal reveal-delay-2">
-          <div class="sm-card-icon"><i class="fa-solid fa-plug"></i></div>
-          <h3>Integration Middleware</h3>
-          <p>Enterprise integrations connecting Oracle Cloud with Salesforce, legacy systems, and third-party APIs via OIC and MuleSoft.</p>
-          <div class="sm-card-tags">
-            <span class="sm-tag">Oracle OIC</span>
-            <span class="sm-tag">MuleSoft</span>
-            <span class="sm-tag">REST / SOAP</span>
-          </div>
-          <a href="services.html#services" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Service Card 4 -->
-        <div class="service-modern-card glass-panel reveal">
-          <div class="sm-card-icon"><i class="fa-solid fa-ticket"></i></div>
-          <h3>ServiceNow Offerings</h3>
-          <p>End-to-end ServiceNow platform implementations, custom service delivery setup, ITSM, and ITOM managed services.</p>
-          <div class="sm-card-tags">
-            <span class="sm-tag">ITSM</span>
-            <span class="sm-tag">ITOM</span>
-            <span class="sm-tag">HR Delivery</span>
-          </div>
-          <a href="services.html#services" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Service Card 5 -->
-        <div class="service-modern-card glass-panel reveal reveal-delay-1">
-          <div class="sm-card-icon"><i class="fa-solid fa-bezier-curve"></i></div>
-          <h3>Consulting Capabilities</h3>
-          <p>Expert advisory for vendor selections, structured RFP management, Month-End Close, and Chart of Accounts (COA) redesigns.</p>
-          <div class="sm-card-tags">
-            <span class="sm-tag">COA Redesign</span>
-            <span class="sm-tag">RFP Advisory</span>
-            <span class="sm-tag">Month-End Close</span>
-          </div>
-          <a href="services.html#programs" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Service Card 6 -->
-        <div class="service-modern-card glass-panel reveal reveal-delay-2">
-          <div class="sm-card-icon"><i class="fa-solid fa-circle-check"></i></div>
-          <h3>Testing &amp; Day 2 Support</h3>
-          <p>Automated regression testing frameworks, post-go-live managed services, and robust AMS support contracts.</p>
-          <div class="sm-card-tags">
-            <span class="sm-tag">Test Automation</span>
-            <span class="sm-tag">Hypercare</span>
-            <span class="sm-tag">Day 2 AMS</span>
-          </div>
-          <a href="services.html#programs" class="sm-card-link">Explore Practice <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ PROCESS / WORKFLOW TIMELINE ════════════════════════════ -->
-  <section class="section" id="process">
-    <div class="wrap">
-      <div class="section-header center reveal">
-        <span class="eyebrow">Implementation Process</span>
-        <h2 class="section-title">Our Structured Delivery Lifecycle</h2>
-        <p class="section-sub">A disciplined, risk-managed approach that ensures on-time and on-scope implementations.</p>
-      </div>
-
-      <div class="process-timeline reveal">
-        <!-- Step 1 -->
-        <div class="process-step">
-          <div class="ps-number">01</div>
-          <div class="ps-indicator"><span class="ps-dot"></span></div>
-          <h4>Alignment &amp; Discovery</h4>
-          <p>We analyze your business goals, identify functional gaps, and design a customized migration roadmap.</p>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="process-step">
-          <div class="ps-number">02</div>
-          <div class="ps-indicator"><span class="ps-dot"></span></div>
-          <h4>COA &amp; Architecture</h4>
-          <p>We redesign your Chart of Accounts and configure OIC or MuleSoft integration architectures.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="process-step">
-          <div class="ps-number">03</div>
-          <div class="ps-indicator"><span class="ps-dot"></span></div>
-          <h4>Agile Build &amp; Migrate</h4>
-          <p>We execute configuration sprints and automate data migration to ensure pristine, validated records.</p>
-        </div>
-
-        <!-- Step 4 -->
-        <div class="process-step">
-          <div class="ps-number">04</div>
-          <div class="ps-indicator"><span class="ps-dot"></span></div>
-          <h4>Testing &amp; Go-Live</h4>
-          <p>Using automated testing scripts, we run regression tests before seamless cutover hypercare support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ RESOURCES ══════════════════════════════════════════════ -->
-  <section class="section section-white" id="resources">
-    <div class="wrap">
-      <div class="section-header center reveal">
-        <span class="eyebrow">Resources &amp; Insights</span>
-        <h2 class="section-title">Thought Leadership &amp; Product Demos</h2>
-        <p class="section-sub">Practical use cases, thought leadership and product demonstrations from our practice
-          experts.</p>
-      </div>
-      <div class="resources-grid">
-        <div class="resource-card reveal">
-          <div class="resource-thumb" style="background:var(--accent-tint); color:var(--accent)">
-            <i class="fa-solid fa-file-pdf"></i>
-          </div>
-          <div class="resource-body">
-            <span class="eyebrow">Whitepapers</span>
-            <h3 style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px">Strategies for
-              Successful Oracle Cloud Migration</h3>
-            <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.6">Key considerations, common pitfalls and
-              proven approaches from 200+ cloud migration engagements.</p>
-            <a href="#contact" class="resource-link">Download PDF <i class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="resource-card reveal reveal-delay-1">
-          <div class="resource-thumb" style="background:var(--green-tint); color:var(--green)">
-            <i class="fa-solid fa-video"></i>
-          </div>
-          <div class="resource-body">
-            <span class="eyebrow" style="color:var(--green)">Product Demo</span>
-            <h3 style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px">Data Migration
-              Automation Tool in Action</h3>
-            <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.6">See how our proprietary migration
-              accelerator compresses the most time-intensive phases of any Oracle rollout.</p>
-            <a href="#contact" class="resource-link" style="color:var(--green)">Watch Demo <i
-                class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <div class="resource-card reveal reveal-delay-2">
-          <div class="resource-thumb" style="background:var(--amber-tint); color:var(--amber)">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-          <div class="resource-body">
-            <span class="eyebrow" style="color:var(--amber)">Use Cases</span>
-            <h3 style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px">Enterprise
-              Scale Chart of Accounts Redesign</h3>
-            <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.6">How a Fortune 500 manufacturer redesigned
-              their COA architecture for Oracle Fusion and global consolidation.</p>
-            <a href="#contact" class="resource-link" style="color:var(--amber)">Read Use Case <i
-                class="fa-solid fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ INDUSTRY EXPERTISE ════════════════════════════════════ -->
-  <section class="section section-alt" id="industries">
-    <div class="wrap">
-      <div class="section-header center reveal">
-        <span class="eyebrow">Industry Solutions</span>
-        <h2 class="section-title">Deep Expertise Across Key Verticals</h2>
-        <p class="section-sub">We deploy industry-specific configurations, compliance models, and pre-built integration templates to solve complex sector challenges.</p>
-      </div>
-
-      <div class="industries-grid">
-        <!-- Financial Services -->
-        <div class="industry-card glass-panel reveal">
-          <div class="industry-icon"><i class="fa-solid fa-landmark"></i></div>
-          <h3>Financial Services</h3>
-          <p>Multi-currency ledger design, regulatory reporting templates, automated month-end consolidation, and secure sub-ledger accounting setups.</p>
-          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Healthcare -->
-        <div class="industry-card glass-panel reveal reveal-delay-1">
-          <div class="industry-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-          <h3>Healthcare</h3>
-          <p>HIPAA-compliant procurement cycles, automated supply chains for multi-location hospitals, and seamless integrations with EHR systems.</p>
-          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Hi-Tech -->
-        <div class="industry-card glass-panel reveal reveal-delay-2">
-          <div class="industry-icon"><i class="fa-solid fa-microchip"></i></div>
-          <h3>Hi-Tech</h3>
-          <p>Agile product lifecycle configurations, supply chain demand forecasting, multi-entity tax structures, and high-growth revenue recognition.</p>
-          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Higher Education -->
-        <div class="industry-card glass-panel reveal reveal-delay-3">
-          <div class="industry-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-          <h3>Higher Education</h3>
-          <p>Unified payroll and position control models, specialized grants management setups, and student finance reporting systems.</p>
-          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Retail -->
-        <div class="industry-card glass-panel reveal reveal-delay-4">
-          <div class="industry-icon"><i class="fa-solid fa-shopping-cart"></i></div>
-          <h3>Retail</h3>
-          <p>Omni-channel supply chain tracking, automated warehouse operations, inventory forecasting, and real-time point-of-sale cloud integrations.</p>
-          <a href="services.html#industries" class="industry-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ TESTIMONIALS ══════════════════════════════════════════ -->
-  <section class="section" id="testimonials">
-    <div class="wrap">
-      <div class="section-header center reveal">
-        <span class="eyebrow">Client Success</span>
-        <h2 class="section-title">Trusted by Global Enterprise Leaders</h2>
-        <p class="section-sub">Here is how we help organizations migrate to the cloud, automate complex workflows, and execute digital transformation.</p>
-      </div>
-
-      <div class="testimonials-grid">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-card glass-panel reveal">
-          <div class="t-rating">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="t-quote">"Upari Consulting's expertise was instrumental in our shift from Oracle EBS to SaaS Cloud. Their migration tool eliminated downtime, and our chart of accounts was completely optimized for global compliance."</p>
-          <div class="t-author">
-            <div class="ta-avatar"><i class="fa-solid fa-user-tie"></i></div>
-            <div>
-              <strong>Robert Chen</strong>
-              <span>VP of Global Finance · Tech Manufacturing Corp</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-card glass-panel reveal reveal-delay-1">
-          <div class="t-rating">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="t-quote">"We automated our invoice routing and scanning queues using Upari's AI tools. It cut our invoice processing duration by 70%. Their onshore-offshore model gives us 24/7 coverage with fantastic responsiveness."</p>
-          <div class="t-author">
-            <div class="ta-avatar"><i class="fa-solid fa-user-doctor"></i></div>
-            <div>
-              <strong>Dr. Sarah Jenkins</strong>
-              <span>Chief Information Officer · Healthcare Group</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testimonial-card glass-panel reveal reveal-delay-2">
-          <div class="t-rating">
-            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-          </div>
-          <p class="t-quote">"Their ServiceNow ITSM rollout was flawless, and the integrations built via OIC connecting Oracle ERP and Salesforce operate seamlessly. They are a true strategic partner who manages risk meticulously."</p>
-          <div class="t-author">
-            <div class="ta-avatar"><i class="fa-solid fa-user-gear"></i></div>
-            <div>
-              <strong>Marcus Vance</strong>
-              <span>Director of Enterprise Applications · Hi-Tech SaaS Co</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ GLOBAL PRESENCE ════════════════════════════════════════ -->
-  <section class="section section-alt">
-    <div class="wrap">
-      <div class="globe-section-inner">
-        <div class="reveal">
-          <span class="eyebrow">Global Presence</span>
-          <h2 class="section-title">Where We Operate</h2>
-          <p class="section-sub" style="margin-bottom:32px">US-based client engagement teams paired with a world-class
-            offshore delivery center for maximum value and responsiveness.</p>
-          <div class="offices-list">
-            <div class="office-item">
-              <div class="office-flag">🇺🇸</div>
-              <div class="office-info">
-                <strong>San Francisco, California — HQ</strong>
-                <span>Primary US Office · Client Engagement Hub</span>
-              </div>
-            </div>
-            <div class="office-item">
-              <div class="office-flag">🇮🇳</div>
-              <div class="office-info">
-                <strong>Hyderabad, India</strong>
-                <span>Global Delivery Center · 24/7 Support</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div class="globe-visual">
-            <i class="fa-solid fa-earth-americas globe-icon"></i>
-            <div class="presence-pin">SF</div>
-            <div class="presence-pin">IN</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CTA BAND ═══════════════════════════════════════════════ -->
-  <section class="cta-band">
-    <div class="wrap cta-band-inner reveal">
-      <h2>Ready to Transform Your Enterprise?</h2>
-      <p>Let's discuss your Oracle Cloud journey, ERP modernization, or automation opportunities. Our team responds
-        within 1 business day.</p>
-      <div class="cta-band-actions">
-        <button class="btn-primary" onclick="openModal()" style="font-size:16px;padding:16px 36px">Start a Conversation
-          →</button>
-        <a href="#contact" class="btn-ghost" style="font-size:16px;padding:15px 36px">Contact Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CONTACT ════════════════════════════════════════════════ -->
-  <section class="section section-white" id="contact">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <span class="eyebrow">Contact Us</span>
-        <h2 class="section-title">Let's Start a Conversation</h2>
-        <p class="section-sub">Whether you're scoping a new implementation, evaluating partners, or need Day 2 support,
-          we're here to help.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <strong>Email</strong>
-              <span>info@upariconsulting.com<br>We respond within 1 business day</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <strong>Headquarters</strong>
-              <span>San Francisco, California, USA<br>Global Delivery: Hyderabad, India</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <strong>Response Time</strong>
-              <span>Within 1 business day guaranteed<br>Emergency support: same-day (AMS clients)</span>
-            </div>
-          </div>
-          <div style="display:flex;flex-wrap:wrap;gap:10px">
-            <a href="#resources" class="btn-ghost" style="font-size:13px;padding:9px 16px"><i
-                class="fa-solid fa-file-pdf"></i> Whitepapers</a>
-            <a href="#resources" class="btn-ghost" style="font-size:13px;padding:9px 16px"><i
-                class="fa-solid fa-play"></i> Product Demo</a>
-          </div>
-        </div>
-        <div class="reveal reveal-delay-2">
-          <div class="contact-form-card">
-            <div id="contactFormContent">
-              <p style="font-size:19px;font-weight:700;color:var(--ink);margin-bottom:6px">Send Us a Message</p>
-              <p style="font-size:14px;color:var(--ink-soft);margin-bottom:24px">Our team will reach out within 1
-                business day.</p>
-              <!-- Honeypot -->
-              <input type="text" name="website" class="hp-field" id="c-hp" tabindex="-1" autocomplete="off">
-              <div class="form-grid">
-                <div class="field">
-                  <label>Full Name *</label>
-                  <input type="text" placeholder="Jane Smith" id="c-name" maxlength="100" />
-                </div>
-                <div class="field">
-                  <label>Designation</label>
-                  <input type="text" placeholder="CTO, VP Finance…" id="c-desig" maxlength="100" />
-                </div>
-                <div class="field">
-                  <label>Email *</label>
-                  <input type="email" placeholder="you@company.com" id="c-email" maxlength="150" />
-                </div>
-                <div class="field">
-                  <label>Company Name</label>
-                  <input type="text" placeholder="Acme Corp" id="c-company" maxlength="150" />
-                </div>
-                <div class="field form-full">
-                  <label>How can we help?</label>
-                  <textarea placeholder="Tell us about your project, timeline and what you'd like to explore…"
-                    id="c-msg" maxlength="2000"></textarea>
-                </div>
-              </div>
-              <button type="button" class="submit-btn" id="contactSubmitBtn" onclick="handleContactSubmit()">Send
-                Message →</button>
-            </div>
-            <div class="success-msg" id="contactSuccess">✓ &nbsp; Thank you! We'll be in touch shortly.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></div>
-          <p class="footer-tagline">30+ years of implementation experience delivering transformational programs to
-            enterprise clients worldwide.</p>
-          <div class="footer-socials">
-            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="social-btn" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
-            <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul class="footer-links">
-            <li><a href="services.html#services">Oracle Cloud ERP</a></li>
-            <li><a href="services.html#programs">EBS Migration</a></li>
-            <li><a href="services.html#programs">Invoice Scanning AI</a></li>
-            <li><a href="services.html#services">ServiceNow</a></li>
-            <li><a href="services.html#services">Integration (OIC/MuleSoft)</a></li>
-            <li><a href="services.html#programs">Day 2 Support</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Industries</h4>
-          <ul class="footer-links">
-            <li><a href="services.html#industries">Financial Services</a></li>
-            <li><a href="services.html#industries">Healthcare</a></li>
-            <li><a href="services.html#industries">Hi-Tech</a></li>
-            <li><a href="services.html#industries">Higher Education</a></li>
-            <li><a href="services.html#industries">Retail</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="#methodology">About Upari</a></li>
-            <li><a href="#" onclick="alert('Leadership page coming soon.')">Leadership</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#resources">Whitepapers</a></li>
-            <li><a href="#" onclick="alert('Terms & Conditions coming soon.')">Terms &amp; Conditions</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 upariconsulting.com &nbsp;·&nbsp; All rights reserved</p>
-        <div class="footer-legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ══ MODAL ══════════════════════════════════════════════════ -->
-  <div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
-    <div class="modal" id="modal">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <p class="modal-title">Get in Touch</p>
-      <p class="modal-sub">Our team will reach out within 1 business day.</p>
-      <!-- Honeypot -->
-      <input type="text" name="website_modal" class="hp-field" id="m-hp" tabindex="-1" autocomplete="off">
-      <div id="modalFormContent">
-        <div class="form-grid">
-          <div class="field">
-            <label>Full Name *</label>
-            <input type="text" placeholder="Jane Smith" id="f-name" maxlength="100" />
-          </div>
-          <div class="field">
-            <label>Designation</label>
-            <input type="text" placeholder="CTO, VP Finance…" id="f-desig" maxlength="100" />
-          </div>
-          <div class="field">
-            <label>Email *</label>
-            <input type="email" placeholder="you@company.com" id="f-email" maxlength="150" />
-          </div>
-          <div class="field">
-            <label>Company</label>
-            <input type="text" placeholder="Acme Corp" id="f-company" maxlength="150" />
-          </div>
-          <div class="field form-full">
-            <label>Message</label>
-            <textarea placeholder="Tell us about your project or what you'd like to explore…" id="f-msg"
-              maxlength="2000"></textarea>
-          </div>
-        </div>
-        <button type="button" class="submit-btn" id="modalSubmitBtn" onclick="handleModalSubmit()">Send Message
-          →</button>
-      </div>
-      <div class="success-msg" id="modalSuccess">✓ &nbsp; Thank you! We'll be in touch shortly.</div>
+    <div>
+      <p class="mission-text">Quality implementation experience at <em>optimal cost</em>, in shorter duration — for every customer, every industry, every scale.</p>
+      <p class="mission-sub">We are a small, focused firm built by practitioners who have lived through complex Oracle deployments. Our tools, processes, and packaged offerings are the result of hard-won experience across dozens of transformations. We partner with industry leaders to deliver more for your investment.</p>
     </div>
   </div>
+</div>
 
-  <!-- Scroll to top -->
-  <button class="scroll-top" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})"
-    aria-label="Back to top">
-    <i class="fa-solid fa-arrow-up"></i>
-  </button>
+<!-- SERVICES -->
+<div class="section fade-in" id="services">
+  <div class="section-label">What we do</div>
+  <h2 class="section-title">Purpose-built Oracle <em>expertise</em></h2>
+  <p class="section-intro">From rapid finance cloud deployments to complex global transformations, our team has the depth and tooling to deliver with confidence.</p>
+  <div class="services-grid">
+    <a class="service-card" href="#contact">
+      <div class="service-icon icon-blue">
+        <svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Oracle Fusion Finance Cloud</h3>
+      <p>General Ledger, Accounts Payable, Accounts Receivable, Fixed Assets, Cash Management — configured for your industry and ready to scale.</p>
+      <span class="service-link">View services →</span>
+    </a>
+    <a class="service-card" href="#offerings">
+      <div class="service-icon icon-teal">
+        <svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+      </div>
+      <h3>Packaged Accelerators</h3>
+      <p>Pre-built configurations, templates, and tools that compress implementation timelines. Ideal for customers who need rapid time-to-value without sacrificing quality.</p>
+      <span class="service-link">View packages →</span>
+    </a>
+    <a class="service-card" href="#contact">
+      <div class="service-icon icon-amber">
+        <svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h3>Global Transformations</h3>
+      <p>Multi-country, multi-org Oracle rollouts with governance frameworks, localization support, and change management built in from day one.</p>
+      <span class="service-link">Learn more →</span>
+    </a>
+    <a class="service-card" href="#contact">
+      <div class="service-icon icon-blue">
+        <svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <h3>Procurement & Supply Chain</h3>
+      <p>Oracle Procurement Cloud, Inventory, Order Management, and Supplier Portal — aligned to your sourcing strategy and operational model.</p>
+      <span class="service-link">View services →</span>
+    </a>
+    <a class="service-card" href="#contact">
+      <div class="service-icon icon-teal">
+        <svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+      </div>
+      <h3>Analytics & Reporting</h3>
+      <p>OTBI, Financial Reporting Studio, and custom analytics architecture — giving your teams the insight they need at month-end and beyond.</p>
+      <span class="service-link">Learn more →</span>
+    </a>
+    <a class="service-card" href="#contact">
+      <div class="service-icon icon-amber">
+        <svg class="icon" style="width:22px;height:22px" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <h3>Data Migration & Integration</h3>
+      <p>High-volume migration strategies and integration patterns for Oracle Cloud — handling millions of records with performance, accuracy, and cutover confidence.</p>
+      <span class="service-link">Learn more →</span>
+    </a>
+  </div>
+  <div class="stat-bar">
+    <div class="stat-cell">
+      <div class="stat-num">15+</div>
+      <div class="stat-label">Industries served</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Implementations delivered</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">30%</div>
+      <div class="stat-label">Avg. faster go-live</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-num">$M+</div>
+      <div class="stat-label">Customer savings generated</div>
+    </div>
+  </div>
+</div>
 
+<!-- OFFERINGS -->
+<div class="offerings-band" id="offerings">
+  <div class="section-full-inner section fade-in">
+    <div class="section-label">Packaged offerings</div>
+    <h2 class="section-title">Built for speed, <em>without compromise</em></h2>
+    <p class="section-intro">Two structured offerings designed for different journeys — whether you need to go live fast or transform at enterprise scale.</p>
+    <div class="offerings-grid">
+      <div class="offer-card dark">
+        <span class="offer-tag">Quick-start</span>
+        <h3>Rapid Value<br>Accelerator</h3>
+        <p>For organizations that want Oracle Cloud running in weeks, not months. Pre-configured workstreams, decision frameworks, and tooling get you to go-live with confidence and at a fraction of traditional cost.</p>
+        <ul class="offer-features">
+          <li>Fixed-scope Finance Cloud foundation</li>
+          <li>Pre-built chart of accounts templates</li>
+          <li>Accelerated data migration tooling</li>
+          <li>Structured 8–12 week delivery timeline</li>
+          <li>Post-go-live hypercare included</li>
+        </ul>
+        <a class="btn-offer-dark" href="#contact">Request details →</a>
+      </div>
+      <div class="offer-card light">
+        <span class="offer-tag">Enterprise</span>
+        <h3>Global Transformation<br>Suite</h3>
+        <p>A comprehensive program framework for multinational Oracle rollouts — covering governance, multi-country localization, enterprise data strategy, integration architecture, and change management.</p>
+        <ul class="offer-features">
+          <li>Multi-country deployment governance</li>
+          <li>Localization and regulatory compliance</li>
+          <li>Integration & middleware architecture</li>
+          <li>Executive steering & PMO support</li>
+          <li>Center of Excellence setup</li>
+        </ul>
+        <a class="btn-offer-light" href="#contact">Talk to us →</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <script src="script.js"></script>
+<!-- WHITEPAPERS -->
+<div class="section fade-in" id="whitepapers">
+  <div class="section-label">Knowledge resources</div>
+  <h2 class="section-title">Whitepapers on <em>critical challenges</em></h2>
+  <p class="section-intro">Practical guidance from our consultants on the implementation challenges that matter most — drawn from real project experience.</p>
+  <div class="wp-list">
+    <a class="wp-item" href="#contact">
+      <div class="wp-num">01</div>
+      <div class="wp-info">
+        <h4>Chart of Accounts Design for Oracle Fusion Finance Cloud</h4>
+        <p>Avoiding structural pitfalls in segment design that cause downstream reporting failures, compliance gaps, and costly re-implementations years after go-live.</p>
+        <span class="wp-tag">Finance Cloud</span>
+      </div>
+      <span class="wp-arrow">→</span>
+    </a>
+    <a class="wp-item" href="#contact">
+      <div class="wp-num">02</div>
+      <div class="wp-info">
+        <h4>High-Volume Data Migration Strategies for Oracle ERP Cloud</h4>
+        <p>Handling millions of records — balancing throughput performance, reconciliation accuracy, and cutover risk in large-scale Oracle Cloud migrations.</p>
+        <span class="wp-tag">Data & Integration</span>
+      </div>
+      <span class="wp-arrow">→</span>
+    </a>
+    <a class="wp-item" href="#contact">
+      <div class="wp-num">03</div>
+      <div class="wp-info">
+        <h4>Intercompany Accounting at Scale in Oracle Fusion</h4>
+        <p>Designing automated intercompany flows, reconciliation rules, and elimination configurations for complex multi-entity, multi-currency global enterprises.</p>
+        <span class="wp-tag">Multi-Entity / Global</span>
+      </div>
+      <span class="wp-arrow">→</span>
+    </a>
+    <a class="wp-item" href="#contact">
+      <div class="wp-num">04</div>
+      <div class="wp-info">
+        <h4>OTBI and Financial Reporting Architecture Best Practices</h4>
+        <p>Building a scalable, maintainable Oracle reporting layer that supports both day-to-day operational needs and executive dashboard requirements — without the tech debt.</p>
+        <span class="wp-tag">Analytics & Reporting</span>
+      </div>
+      <span class="wp-arrow">→</span>
+    </a>
+    <a class="wp-item" href="#contact">
+      <div class="wp-num">05</div>
+      <div class="wp-info">
+        <h4>Procurement Cloud Implementation: Pitfalls and Proven Patterns</h4>
+        <p>Lessons from the field on requisition workflows, supplier onboarding, approval hierarchies, and PO life cycle design in Oracle Procurement Cloud.</p>
+        <span class="wp-tag">Procurement</span>
+      </div>
+      <span class="wp-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<!-- TOOLS & METHODOLOGY -->
+<div class="tools-band" id="tools">
+  <div class="tools-inner fade-in">
+    <div class="tools-label">Our methodology</div>
+    <h2 class="tools-heading">Specialized tools &amp; <em>proven processes</em></h2>
+    <p class="tools-sub">We haven't just done implementations — we've built the tools that make them go faster, with fewer surprises. Our proprietary accelerators, process frameworks, and quality gates are embedded into every engagement.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-card-icon">
+          <svg class="icon" style="width:26px;height:26px;color:var(--teal-300)" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h4>CoA Design Toolkit</h4>
+        <p>Decision frameworks and validation tooling for chart of accounts structure — ensuring your financial reporting foundation is correct from day one.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">
+          <svg class="icon" style="width:26px;height:26px;color:var(--teal-300)" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h4>Data Migration Engine</h4>
+        <p>Automated extraction, transformation, and load tooling built for Oracle Cloud — tested on millions of records across Subledger, GL, and AP/AR conversions.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">
+          <svg class="icon" style="width:26px;height:26px;color:var(--teal-300)" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h4>Configuration Templates</h4>
+        <p>Pre-configured Oracle Fusion setups across Finance, Procurement, and Supply Chain — industry-calibrated and ready to adapt in days, not weeks.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">
+          <svg class="icon" style="width:26px;height:26px;color:var(--teal-300)" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h4>Quality Gate Framework</h4>
+        <p>Structured checkpoints at every implementation phase — design, build, test, and go-live — ensuring issues are caught early, not at cutover.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">
+          <svg class="icon" style="width:26px;height:26px;color:var(--teal-300)" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h4>Global Rollout Playbook</h4>
+        <p>Country-by-country localization checklists, regulatory mapping, and governance templates for multi-wave global Oracle deployment programs.</p>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-icon">
+          <svg class="icon" style="width:26px;height:26px;color:var(--teal-300)" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <h4>Reporting Accelerator</h4>
+        <p>A library of OTBI subject area templates, Financial Reporting Studio layouts, and SmartView workbooks covering common management and statutory requirements.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNER / CONTACT -->
+<div class="partner-band" id="partners">
+  <div class="partner-inner fade-in">
+    <div class="partner-left">
+      <h2>Partner with <em>UPARI</em></h2>
+      <p>We are a focused, agile firm actively seeking partnerships with industry leaders, global system integrators, and technology providers who share our commitment to customer-first outcomes and measurable ROI.</p>
+      <p>If you represent an Oracle partner, a regional consultancy, or a technology vendor looking to extend your Oracle Cloud capability — we'd like to talk.</p>
+      <div class="partner-logos">
+        <div class="partner-logo-pill">Oracle Partner Network</div>
+        <div class="partner-logo-pill">GSI Partnerships</div>
+        <div class="partner-logo-pill">Cloud Marketplace</div>
+        <div class="partner-logo-pill">ISV Alliances</div>
+      </div>
+      <a class="btn-primary" href="#contact" style="background: var(--navy-900); color: var(--teal-300);">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Explore partnership
+      </a>
+    </div>
+    <div class="partner-contact" id="contact">
+      <h3>Get in touch</h3>
+      <div class="contact-field">
+        <label>Your name</label>
+        <input type="text" placeholder="Jane Smith" />
+      </div>
+      <div class="contact-field">
+        <label>Company</label>
+        <input type="text" placeholder="Acme Corporation" />
+      </div>
+      <div class="contact-field">
+        <label>Email</label>
+        <input type="email" placeholder="jane@acme.com" />
+      </div>
+      <div class="contact-field">
+        <label>How can we help?</label>
+        <select>
+          <option value="">Select an area...</option>
+          <option>Oracle Finance Cloud Implementation</option>
+          <option>Packaged Offering — Rapid Value Accelerator</option>
+          <option>Global Transformation Program</option>
+          <option>Data Migration / Integration</option>
+          <option>Reporting & Analytics</option>
+          <option>Partnership Inquiry</option>
+          <option>Whitepaper Request</option>
+        </select>
+      </div>
+      <div class="contact-field">
+        <label>Message</label>
+        <textarea rows="3" placeholder="Tell us about your project..."></textarea>
+      </div>
+      <button class="contact-submit" onclick="handleSubmit(this)">Send message →</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand-block">
+        <div class="footer-logo-row">
+          <div class="footer-logo-mark">U</div>
+          <span class="footer-brand-name">UPARI</span>
+        </div>
+        <p class="footer-tagline">Oracle ERP Cloud implementation specialists. Quality, speed, and value — for every customer, every scale.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#services">Finance Cloud</a>
+        <a href="#services">Procurement</a>
+        <a href="#services">Supply Chain</a>
+        <a href="#services">Analytics</a>
+        <a href="#services">Data Migration</a>
+      </div>
+      <div class="footer-col">
+        <h4>Offerings</h4>
+        <a href="#offerings">Rapid Value Accelerator</a>
+        <a href="#offerings">Global Transformation Suite</a>
+        <a href="#tools">Our Methodology</a>
+        <a href="#whitepapers">Whitepapers</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#partners">Partner with us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 UPARI Consulting. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  document.getElementById('mobile-toggle').addEventListener('click', function() {
+    var links = document.getElementById('nav-links');
+    links.classList.toggle('open');
+  });
+
+  // Scroll fade-in observer
+  var fadeEls = document.querySelectorAll('.fade-in');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(function(el) { observer.observe(el); });
+
+  // Sticky nav shadow on scroll
+  window.addEventListener('scroll', function() {
+    var nav = document.getElementById('nav');
+    if (window.scrollY > 10) {
+      nav.style.boxShadow = '0 2px 16px rgba(4,44,83,0.07)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+
+  // Contact form submit
+  function handleSubmit(btn) {
+    btn.textContent = 'Message sent ✓';
+    btn.style.background = '#0F6E56';
+    btn.style.color = '#E1F5EE';
+    btn.disabled = true;
+  }
+</script>
 </body>
 </html>
