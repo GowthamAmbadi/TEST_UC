@@ -10,27 +10,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css" />
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 <body>
 
   <!-- ══ NAV ══════════════════════════════════════════════════ -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></a>
+      <a href="index.html" class="nav-logo"><span class="brand">Upari</span><span class="accent"> Consulting</span></a>
             <ul class="nav-links">
-        <li><a href="index.html#methodology">Our Approach</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="services.html#industries">Industries</a></li>
-        <li><a href="index.html#technologies">Technologies</a></li>
+        <li><a href="services.html#technologies">Technologies</a></li>
         <li><a href="#careers">Careers</a></li>
+        <li><a href="index.html#methodology">About</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
       <div class="nav-right">
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle Theme" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon"></i>
+          <i class="fa-solid fa-sun"></i>
+        </button>
         <button class="nav-cta" onclick="openModal()">Get in Touch</button>
         <button class="nav-burger" id="navBurger" aria-label="Menu" onclick="toggleMobile()">
           <span></span><span></span><span></span>
@@ -41,11 +55,11 @@
 
   <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html#methodology" onclick="closeMobile()">Our Approach</a>
     <a href="services.html" onclick="closeMobile()">Services</a>
     <a href="services.html#industries" onclick="closeMobile()">Industries</a>
-    <a href="index.html#technologies" onclick="closeMobile()">Technologies</a>
+    <a href="services.html#technologies" onclick="closeMobile()">Technologies</a>
     <a href="#careers" onclick="closeMobile()">Careers</a>
+    <a href="index.html#methodology" onclick="closeMobile()">About</a>
     <a href="index.html#contact" onclick="closeMobile()">Contact</a>
     <a class="mob-cta" onclick="closeMobile(); openModal();">Get in Touch →</a>
   </div>

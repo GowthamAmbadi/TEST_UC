@@ -1,3 +1,49 @@
+    /* ─── Theme Support Initialization ──────────── */
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'light') {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+      }
+    }
+
+    /* ─── Interactive Hero Wizard ───────────────── */
+    function switchHeroStep(step) {
+      // Update tabs active state
+      document.querySelectorAll('.j-tab').forEach(tab => {
+        if (parseInt(tab.dataset.step, 10) === step) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      // Update panes active state
+      document.querySelectorAll('.j-pane').forEach((pane, idx) => {
+        if (idx + 1 === step) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+      // Update progress bar fill
+      const fill = document.getElementById('journeyProgressFill');
+      if (fill) {
+        fill.style.width = (step * 25) + '%';
+      }
+    }
+
     /* ─── Web3Forms key ─────────────────────────── */
     const W3F_KEY = '84c6cb0d-45c5-4162-b09b-b07edf016558';
 
@@ -35,9 +81,13 @@
     /* ─── Mobile nav ────────────────────────────── */
     function toggleMobile() {
       document.getElementById('mobileMenu').classList.toggle('open');
+      const burger = document.getElementById('navBurger');
+      if (burger) burger.classList.toggle('open');
     }
     function closeMobile() {
       document.getElementById('mobileMenu').classList.remove('open');
+      const burger = document.getElementById('navBurger');
+      if (burger) burger.classList.remove('open');
     }
 
     /* ─── Modal ─────────────────────────────────── */
@@ -270,5 +320,5 @@
           counterObs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.15 });
     document.querySelectorAll('.counters-grid').forEach(el => counterObs.observe(el));
